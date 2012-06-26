@@ -54,6 +54,7 @@ void do_parse(FILE *);
 %token DELIM_SYM
 %token FILE_SIZE_EQUIV_SYM
 %token CREATE_SYM
+%token ALTER_SYM
 %token MIN_ROWS_SYM
 %token DATA_FILE_SYM
 %token GEN_DATA_FILE_SYM
@@ -205,6 +206,10 @@ table_def_line: CLIENT_SYM STRING_SYM SEMI_SYM
 | CREATE_SYM STRING_SYM SEMI_SYM
 {
   $$ = new Table_create_def_line(*($2));
+}
+| ALTER_SYM STRING_SYM SEMI_SYM
+{
+  $$ = new Table_alter_def_line(*($2));
 }
 | MIN_ROWS_SYM STRING_SYM SEMI_SYM
 {

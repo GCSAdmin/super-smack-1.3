@@ -180,6 +180,12 @@ void Table_def::validate_table(string& name)
       struct stat f;
       cout << "Creating table '" << name << "'" << endl;
       c->safe_query(create_st.c_str());
+
+	  if (!alter_st.empty())
+	  {
+		c->safe_query(alter_st.c_str());
+	  }
+      
       if(stat(file, &f) && populate_data_file(file, gen_data_file.c_str()))
 	die(1, "Error generating data file");
       cout << "Loading data from file '" << file << "' into table '" << name <<
@@ -199,6 +205,11 @@ void Table_client_def_line::update_table_def(Table_def* t)
 void Table_create_def_line::update_table_def(Table_def* t)
 {
   t->create_st = str;
+}
+
+void Table_alter_def_line::update_table_def(Table_def* t)
+{
+  t->alter_st = str;
 }
 
 void Table_min_rows_def_line::update_table_def(Table_def* t)

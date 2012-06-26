@@ -35,9 +35,10 @@ extern char** glob_argv;
 class Table_def
 {
 public:
-  Table_def(){}
+  Table_def():alter_st(""){}
 
   string create_st;
+  string alter_st;
   string min_rows;
   string client;
   string data_file;
@@ -68,6 +69,14 @@ public:
   Table_create_def_line(string& str): Table_def_line(str){}
   void update_table_def(Table_def* t);
 };
+
+class Table_alter_def_line: public Table_def_line
+{
+public:
+  Table_alter_def_line(string& str): Table_def_line(str){}
+  void update_table_def(Table_def* t);
+};
+
 
 class Table_min_rows_def_line: public Table_def_line
 {

@@ -33,6 +33,7 @@ DIGIT [0-9]
 <INITIAL>"delim" { return DELIM_SYM; }
 <INITIAL>"file_size_equiv" { return FILE_SIZE_EQUIV_SYM; }
 <INITIAL>"create" { return CREATE_SYM; }
+<INITIAL>"alter" { return ALTER_SYM; }
 <INITIAL>"min_rows" { return MIN_ROWS_SYM; }
 <INITIAL>"data_file" { return DATA_FILE_SYM; }
 <INITIAL>"gen_data_file" { return GEN_DATA_FILE_SYM; }
