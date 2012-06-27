@@ -18,6 +18,7 @@
 
 #include <ctype.h>
 #include <math.h>
+#include <time.h>
 
 #include "die.h"
 #include "smack.h"
@@ -190,8 +191,12 @@ void Table_def::validate_table(string& name)
 	die(1, "Error generating data file");
       cout << "Loading data from file '" << file << "' into table '" << name <<
 	   "'" << endl;
+
+	  time_t t_start,t_end;  
+      t_start = time(NULL) ;
       c->load_table_data(name, file);
-      cout << "Table " << name << " is now ready for the test" << endl;
+      t_end = time(NULL);
+      cout << "Table " << name << " is now ready for the test. Load time : " << difftime(t_end,t_start) << "seconds."<< endl;
     }
 
   c->disconnect();
