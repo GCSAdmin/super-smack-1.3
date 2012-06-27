@@ -16,6 +16,7 @@
 #include <ctype.h>
 
 extern const char* datadir;
+extern const char* g_port;
 
 char* mk_data_path(char* buf, const char* file);
 int populate_data_file(const char* file, const char* cmd);

@@ -29,6 +29,7 @@ using namespace std;
 #include "dictionary.h"
 #include "query.h"
 #include "val.h"
+#include "Smack.h"
 
 extern int db_type;
 
@@ -73,7 +74,7 @@ class Client
       user = "test";
       pass = "";
       db = "test";
-      port = "";
+      port = g_port;
       socket = "";
       connected = 0;
       connect_time = min_connect_time = -1;

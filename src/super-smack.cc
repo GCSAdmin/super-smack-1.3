@@ -52,6 +52,7 @@ struct option long_options[] =
   {"version", no_argument,       0, 'V'},
   {"db-type", required_argument, 0, 'd'},
   {"datadir", required_argument, 0, 'D'},
+  {"port", 	  required_argument, 0, 'P'},
   {0,0,0,0}     
 };
 #endif
@@ -88,6 +89,14 @@ void get_options()
 	case 'V': print_version(); exit(0);
 	case 'd': set_db_type(optarg); break;
 	case 'D': datadir = optarg; break;
+	case 'P': 
+		g_port = optarg; 
+		if (atoi(port) == 0) 
+		{
+			fprint(stderr, "error port\n");
+			exit(1);
+		}
+		break;
 	default: usage(); exit(1);
 	}
     }
@@ -144,6 +153,7 @@ Valid options are:\
   -V, --version            Show version\n\
   -d, --db-type=handle     Select database type\n\
   -D, --datadir=path       Path to super-smack datadir\n\
+  -P, --port=port_num 	   port of connectting server\n\
 \n\
 ");
 }

@@ -24,6 +24,7 @@ using namespace std;
 #include "die.h"
 
 const char* datadir = SMACK_DATADIR;
+const char* g_port = "";
 
 char* mk_data_path(char* buf, const char* file)
 {
