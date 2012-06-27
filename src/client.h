@@ -29,7 +29,7 @@ using namespace std;
 #include "dictionary.h"
 #include "query.h"
 #include "val.h"
-#include "Smack.h"
+#include "smack.h"
 
 extern int db_type;
 

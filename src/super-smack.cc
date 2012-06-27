@@ -44,6 +44,8 @@ using namespace std;
 int glob_argc = 0;
 char **glob_argv = 0;
 
+char* g_port = "";
+
 
 #ifdef HAVE_LONG_OPT
 struct option long_options[] =
@@ -91,7 +93,7 @@ void get_options()
 	case 'D': datadir = optarg; break;
 	case 'P': 
 		g_port = optarg; 
-		if (atoi(port) == 0) 
+		if (atoi(g_port) == 0) 
 		{
 			fprint(stderr, "error port\n");
 			exit(1);
