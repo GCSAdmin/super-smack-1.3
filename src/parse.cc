@@ -34,6 +34,8 @@ map<string, Val*, less<string> > var_hash;
 string current_client = "main";
 vector<int> client_pids;
 
+extern char* g_port;
+
 Query_def_line::Query_def_line(string& str):str(str)
 {
 }
@@ -243,6 +245,10 @@ Client* Client_def::make_client()
   c->host = host;
   c->socket = this->socket;
   c->port = port;
+
+  if (c->port.empty()) {
+ 	c->port = g_port;
+  }
   
   if(qb)
     c->set_query_barrel(qb);
