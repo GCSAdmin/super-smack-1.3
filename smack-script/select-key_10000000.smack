@@ -47,7 +47,7 @@ dictionary "word"
 //define a query
 query "select_by_username"
 {
-  query "select * from http_auth2 where username = '$word'";
+  query "select * from http_auth2 where uid = '$word'";
 // $word will be substitute with the read from the 'word' dictionary
   type "select_index";
 // query stats will be grouped by type

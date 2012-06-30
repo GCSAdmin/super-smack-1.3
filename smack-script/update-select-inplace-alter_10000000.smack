@@ -44,7 +44,7 @@ dictionary "word"
 //define a query
 query "select_by_username"
 {
-  query "select * from http_auth_alter2 where username = '$word'";
+  query "select * from http_auth_alter2 where uid = '$word'";
 // $word will be substitute with the read from the 'word' dictionary
   type "select_index";
 // query stats will be grouped by type
@@ -57,7 +57,7 @@ query "select_by_username"
 
 query "update_by_username"
 {
-  query "update http_auth_alter2 set pass='$word',gid=gid+1 where username = '$word'";
+  query "update http_auth_alter2 set pass='$word',gid=gid+1 where uid = '$word'";
 // $word will be substitute with the read from the 'word' dictionary
 // note that the first word is not the same as the second, as each is
 // a separate random draw from the dictionary
