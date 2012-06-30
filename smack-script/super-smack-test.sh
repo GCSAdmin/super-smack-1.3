@@ -53,14 +53,14 @@ do
     
         run_count=`expr ${total_run_count} / ${concurrency}`;
   
-        if [ $concurrency -eq 5 ]
-        then
-          if [ $port -eq 3306 -o $port -eq 3307 ]
-  	      then
+        #if [ $concurrency -eq 5 ]
+        #then
+          #if [ $port -eq 3306 -o $port -eq 3307 ]
+  	      #then
   	        #echo $port 5;
             #continue;
-          fi
-        fi
+          #fi
+        #fi
   
         if [ ${run_count} -lt  $min_run_count ]
         then
@@ -74,11 +74,11 @@ do
         echo ..;
         sleep 30;
   
-        if [ $port -eq 3306 ]
+        if [ $port -eq 3307 ]
         then
-          date && ${smack} --port=${port} ${test_name}-alter_${row_count}.smack ${concurrency} ${run_count};
+          date && ${smack} --port=3306 ${test_name}-alter_${row_count}.smack ${concurrency} ${run_count};
           #echo update_index	1000000	0	0	10675.91
-          echo mysqld_port=${port} ${test_name}-alter_${row_count}.smack ${concurrency} ${run_count} completed;
+          echo mysqld_port=3306 ${test_name}-alter_${row_count}.smack ${concurrency} ${run_count} completed;
           echo ..;
           echo ..;
           sleep 30;
